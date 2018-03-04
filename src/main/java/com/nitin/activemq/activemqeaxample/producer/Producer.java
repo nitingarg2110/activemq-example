@@ -1,4 +1,4 @@
-package com.nitin.activemq.activemqeaxample.resources;
+package com.nitin.activemq.activemqeaxample.producer;
 
 import javax.jms.Queue;
 
