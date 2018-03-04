@@ -19,7 +19,6 @@ public class DetermineMicroservice {
 	}
 
 	public SeoEvent getMicroServiceName(SeoEvent seoEvent) {
-		// get the stateful session
 		KieSession kieSession = kieContainer.newKieSession("rulesSession");
 		kieSession.insert(seoEvent);
 		kieSession.fireAllRules();

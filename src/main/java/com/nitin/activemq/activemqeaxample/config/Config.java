@@ -21,8 +21,6 @@ import org.springframework.jms.support.converter.MessageType;
 @ComponentScan("com.nitin.activemq.activemqeaxample")
 public class Config {
 
-	private static final String drlFile = "determineService.drl";
-
 	@Value("${spring.activemq.broker-url}")
 	private String brokerURL;
 
@@ -37,20 +35,6 @@ public class Config {
 		return new ActiveMQQueue("standalone.queue");
 
 	}
-
-	/*@Bean
-	public KieContainer kieContainer() {
-		KieServices kieServices = KieServices.Factory.get();
-
-		KieFileSystem kieFileSystem = kieServices.newKieFileSystem();
-		kieFileSystem.write(ResourceFactory.newClassPathResource(drlFile));
-		KieBuilder kieBuilder = kieServices.newKieBuilder(kieFileSystem);
-		kieBuilder.buildAll();
-		KieModule kieModule = kieBuilder.getKieModule();
-
-		return kieServices.newKieContainer(kieModule.getReleaseId());
-
-	}*/
 
 	@Bean
 	public ActiveMQConnectionFactory activeMQConnectionFactory() {

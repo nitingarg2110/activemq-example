@@ -4,15 +4,15 @@ import javax.jms.Queue;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nitin.activemq.activemqeaxample.model.SeoEvent;
 
 @RestController
-@RequestMapping("/rest/publish")
+@RequestMapping("/rest")
 public class Producer {
 
 	@Autowired
@@ -21,8 +21,8 @@ public class Producer {
 	@Autowired
 	Queue queue;
 
-	@GetMapping("/{message}")
-	public String publish(@PathVariable("message") final SeoEvent seoEvent) {
+	@PostMapping("/publish")
+	public String publish(@RequestBody final SeoEvent seoEvent) {
 		jmsTemplate.convertAndSend(queue, seoEvent);
 
 		return "Published Successfully";
