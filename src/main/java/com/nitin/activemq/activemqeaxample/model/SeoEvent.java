@@ -28,6 +28,8 @@ public class SeoEvent {
 
 	private String messageName;
 
+	private String microServiceName;
+
 	public SeoEvent() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -47,6 +49,14 @@ public class SeoEvent {
 		this.sourceSystemId = sourceSystemId;
 		this.messageType = messageType;
 		this.messageName = messageName;
+	}
+
+	public String getMicroServiceName() {
+		return microServiceName;
+	}
+
+	public void setMicroServiceName(String microServiceName) {
+		this.microServiceName = microServiceName;
 	}
 
 	public String getTransactionId() {

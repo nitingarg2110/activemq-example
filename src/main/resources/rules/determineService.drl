@@ -1,0 +1,55 @@
+package rules
+
+import com.nitin.activemq.activemqeaxample.model.SeoEvent;
+import com.nitin.activemq.activemqeaxample.model.MessageTypeEnum;
+import java.util.*;
+
+dialect  "mvel"
+
+rule "Determine Service Scenario 1"
+
+when
+	seoEventInstance:SeoEvent(messageType==MessageTypeEnum.ASPECT);
+then
+	seoEventInstance.setMicroServiceName("Service1");
+
+end
+
+rule "Determine Service Scenario 2"
+	
+when
+	seoEventInstance:SeoEvent(messageType==MessageTypeEnum.AUDIT);
+then
+	seoEventInstance.setMicroServiceName("Service2");
+
+
+end
+
+rule "Determine Service Scenario 3"	
+
+when
+	seoEventInstance:SeoEvent(messageType==MessageTypeEnum.EVENT);
+then
+	seoEventInstance.setMicroServiceName("Service3");
+
+
+end
+
+rule "Determine Service Scenario 4"	
+
+when
+	seoEventInstance:SeoEvent(messageType == MessageTypeEnum.EXCEPTION);
+then
+	seoEventInstance.setMicroServiceName("Service4");
+
+
+end
+
+rule "Determine Service Scenario 5"
+
+when
+	seoEventInstance:SeoEvent(messageType==MessageTypeEnum.INSTRUMENTATION);
+then
+	seoEventInstance.setMicroServiceName("Service5");
+		
+end
